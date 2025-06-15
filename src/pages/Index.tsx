@@ -145,7 +145,7 @@ const Index = () => {
                   <img
                     src="/lovable-uploads/79aa2cc7-a302-429b-9358-6f23d7c46b6c.png"
                     alt="Ploypitcha Boontavipitak - Professional Profile Photo"
-                    className="w-full max-w-sm mx-auto rounded-2xl shadow-lg transition-all duration-300 group-hover:scale-105"
+                    className="w-80 h-80 mx-auto rounded-2xl shadow-lg transition-all duration-300 group-hover:scale-105 object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
