@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, Calendar, User, Download, ExternalLink, Trophy, Award, Upload, Image } from 'lucide-react';
+import { Mail, Phone, MapPin, Calendar, User, Download, ExternalLink, Trophy, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -8,7 +8,6 @@ import ThemeToggle from '@/components/ThemeToggle';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
-  const [mascotImage, setMascotImage] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,17 +30,6 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setMascotImage(e.target?.result as string);
-      };
-      reader.readAsDataURL(file);
     }
   };
 
@@ -149,64 +137,22 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Profile Photo Upload Area */}
+            {/* Profile Photo */}
             <div className="backdrop-blur-glass bg-white/30 dark:bg-gray-800/30 rounded-3xl p-8 border border-white/40 dark:border-gray-700/40 shadow-xl animate-fade-in">
               <div className="text-center">
-                <h3 className="text-xl font-poppins font-semibold text-gray-800 dark:text-white mb-4">Profile Photo</h3>
+                <h3 className="text-xl font-poppins font-semibold text-gray-800 dark:text-white mb-6">Profile Photo</h3>
                 
-                {mascotImage ? (
-                  <div className="relative group">
-                    <img
-                      src={mascotImage}
-                      alt="Profile Photo"
-                      className="w-full max-w-sm mx-auto rounded-2xl shadow-lg transition-all duration-300 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <Button
-                        onClick={() => setMascotImage(null)}
-                        variant="outline"
-                        size="sm"
-                        className="bg-white/90 text-gray-800 border-white/60 hover:bg-white"
-                      >
-                        Change Image
-                      </Button>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-2xl p-12 hover:border-lavender transition-colors duration-300">
-                    <div className="flex flex-col items-center space-y-4">
-                      <div className="w-20 h-20 bg-gradient-to-br from-lavender/20 to-teal/20 rounded-full flex items-center justify-center">
-                        <Image className="w-10 h-10 text-lavender" />
-                      </div>
-                      <div>
-                        <h4 className="font-poppins font-medium text-gray-800 dark:text-white mb-2">Upload Your Profile Photo</h4>
-                        <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">Add a professional profile photo to represent your brand</p>
-                        <label htmlFor="mascot-upload" className="cursor-pointer">
-                          <Button
-                            asChild
-                            size="sm"
-                            className="bg-gradient-to-r from-lavender to-teal hover:from-lavender/90 hover:to-teal/90 text-white transition-all duration-300 hover:scale-105"
-                          >
-                            <span>
-                              <Upload className="mr-2 h-4 w-4" />
-                              Choose Image
-                            </span>
-                          </Button>
-                        </label>
-                        <input
-                          id="mascot-upload"
-                          type="file"
-                          accept="image/*"
-                          onChange={handleImageUpload}
-                          className="hidden"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                )}
+                <div className="relative group">
+                  <img
+                    src="/lovable-uploads/79aa2cc7-a302-429b-9358-6f23d7c46b6c.png"
+                    alt="Ploypitcha Boontavipitak - Professional Profile Photo"
+                    className="w-full max-w-sm mx-auto rounded-2xl shadow-lg transition-all duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
                 
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-4">
-                  Recommended: Square image, 400x400px or larger
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-6 italic">
+                  Professional entrepreneur and innovation marketer
                 </p>
               </div>
             </div>
