@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Calendar, User, Download, ExternalLink, Trophy, Award, Upload, Image } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -146,16 +145,16 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Mascot Upload Area */}
+            {/* Profile Photo Upload Area */}
             <div className="backdrop-blur-glass bg-white/30 rounded-3xl p-8 border border-white/40 shadow-xl animate-fade-in">
               <div className="text-center">
-                <h3 className="text-xl font-poppins font-semibold text-gray-800 mb-4">Professional Mascot</h3>
+                <h3 className="text-xl font-poppins font-semibold text-gray-800 mb-4">Profile Photo</h3>
                 
                 {mascotImage ? (
                   <div className="relative group">
                     <img
                       src={mascotImage}
-                      alt="Professional Mascot"
+                      alt="Profile Photo"
                       className="w-full max-w-sm mx-auto rounded-2xl shadow-lg transition-all duration-300 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -176,8 +175,8 @@ const Index = () => {
                         <Image className="w-10 h-10 text-lavender" />
                       </div>
                       <div>
-                        <h4 className="font-poppins font-medium text-gray-800 mb-2">Upload Your Mascot</h4>
-                        <p className="text-gray-600 text-sm mb-4">Add a professional mascot image to represent your brand</p>
+                        <h4 className="font-poppins font-medium text-gray-800 mb-2">Upload Your Profile Photo</h4>
+                        <p className="text-gray-600 text-sm mb-4">Add a professional profile photo to represent your brand</p>
                         <label htmlFor="mascot-upload" className="cursor-pointer">
                           <Button
                             asChild
