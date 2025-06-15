@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Calendar, User, Download, ExternalLink, Trophy, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -138,8 +139,8 @@ const Index = () => {
             </div>
 
             {/* Profile Photo */}
-            <div className="backdrop-blur-glass bg-white/30 dark:bg-gray-800/30 rounded-3xl p-12 border border-white/40 dark:border-gray-700/40 shadow-xl animate-fade-in">
-              <div className="text-center">
+            <div className="backdrop-blur-glass bg-white/30 dark:bg-gray-800/30 rounded-3xl p-12 border border-white/40 dark:border-gray-700/40 shadow-xl animate-fade-in flex items-center justify-center">
+              <div className="text-center w-full">
                 <div className="relative group">
                   <img
                     src="/lovable-uploads/79aa2cc7-a302-429b-9358-6f23d7c46b6c.png"
