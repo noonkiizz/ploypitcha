@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Calendar, User, Download, ExternalLink, Trophy, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -249,33 +248,20 @@ const Index = () => {
                 ]
               },
               {
-                title: "Brand Manager",
-                company: "L'Oreal Thailand",
+                title: "Consultant (FMCG)",
+                company: "Robert Walters",
                 period: "Jan 2016 – Jul 2016",
                 highlights: [
-                  "Managed premium beauty brand portfolio including Lancôme and Urban Decay",
-                  "Developed and executed integrated marketing campaigns across digital and traditional channels",
-                  "Led product launch strategies resulting in 25% market share growth",
-                  "Coordinated with regional teams to adapt global campaigns for local market",
-                  "Managed annual marketing budget of $2M+ with ROI optimization focus"
+                  "Provided strategic FMCG consulting for multinational clients",
+                  "Conducted market analysis and consumer behavior insights",
+                  "Supported client relationship management and business development",
+                  "Delivered recommendations for market entry and expansion strategies"
                 ]
               },
               {
                 title: "Assistant Brand Manager",
-                company: "Luxasia Thailand",
-                period: "Feb 2015 – Dec 2015",
-                highlights: [
-                  "Managed luxury beauty brands including Tom Ford Beauty and Jo Malone London",
-                  "Executed brand positioning strategies for premium market segments",
-                  "Developed retail partnerships and in-store marketing activations",
-                  "Analyzed market trends and consumer insights to drive brand growth",
-                  "Coordinated with international brand teams for campaign localization"
-                ]
-              },
-              {
-                title: "Assistant Brand Manager",
-                company: "Henkel Thailand",
-                period: "Aug 2014 – Jan 2015",
+                company: "Henkel",
+                period: "Aug 2014 – Dec 2015",
                 highlights: [
                   "Managed FMCG brands including Schwarzkopf and Persil in Thai market",
                   "Developed brand strategy and campaign management for consumer products",
@@ -284,14 +270,25 @@ const Index = () => {
                 ]
               },
               {
-                title: "Consultant (FMCG)",
-                company: "Robert Walters Thailand",
-                period: "Jul 2014 – Aug 2014",
+                title: "Marketing Executive",
+                company: "Luxasia",
+                period: "Jun 2013 – Jul 2014",
                 highlights: [
-                  "Provided strategic FMCG consulting for multinational clients",
-                  "Conducted market analysis and consumer behavior insights",
-                  "Supported client relationship management and business development",
-                  "Delivered recommendations for market entry and expansion strategies"
+                  "Managed luxury beauty brands in premium market segments",
+                  "Executed brand positioning strategies for international brands",
+                  "Developed retail partnerships and in-store marketing activations",
+                  "Analyzed market trends and consumer insights to drive brand growth"
+                ]
+              },
+              {
+                title: "Trade Activation Coordinator",
+                company: "L'Oréal",
+                period: "Jan 2013 – Jun 2013",
+                highlights: [
+                  "Coordinated trade marketing activities for beauty brands",
+                  "Managed retail partnerships and promotional campaigns",
+                  "Executed product launch strategies and market activations",
+                  "Supported sales teams with marketing materials and trade support"
                 ]
               }
             ].map((job, index) => (
