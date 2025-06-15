@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -86,26 +87,29 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F5F7FA] to-[#E3E8F0] font-inter">
+    <div className="min-h-screen bg-gradient-to-br from-[#F5F7FA] to-[#E3E8F0] dark:from-gray-900 dark:to-gray-800 font-inter transition-colors duration-300">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-glass bg-white/20 border-b border-white/20">
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-glass bg-white/20 dark:bg-gray-900/20 border-b border-white/20 dark:border-gray-700/20">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <h1 className="text-xl font-poppins font-bold text-gray-800">Ploypitcha Boontavipitak</h1>
-            <div className="hidden md:flex space-x-6">
-              {['About', 'Education', 'Certificates', 'Experience', 'Awards', 'Contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`font-medium transition-colors ${
-                    activeSection === item.toLowerCase()
-                      ? 'text-lavender'
-                      : 'text-gray-600 hover:text-lavender'
-                  }`}
-                >
-                  {item}
-                </button>
-              ))}
+            <h1 className="text-xl font-poppins font-bold text-gray-800 dark:text-white">Ploypitcha Boontavipitak</h1>
+            <div className="flex items-center space-x-6">
+              <div className="hidden md:flex space-x-6">
+                {['About', 'Education', 'Certificates', 'Experience', 'Awards', 'Contact'].map((item) => (
+                  <button
+                    key={item}
+                    onClick={() => scrollToSection(item.toLowerCase())}
+                    className={`font-medium transition-colors ${
+                      activeSection === item.toLowerCase()
+                        ? 'text-lavender'
+                        : 'text-gray-600 dark:text-gray-300 hover:text-lavender'
+                    }`}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
+              <ThemeToggle />
             </div>
           </div>
         </div>
@@ -116,14 +120,14 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Main Content */}
-            <div className="backdrop-blur-glass bg-white/30 rounded-3xl p-12 border border-white/40 shadow-xl animate-fade-in">
-              <h1 className="text-4xl md:text-5xl font-poppins font-bold text-gray-800 mb-6">
+            <div className="backdrop-blur-glass bg-white/30 dark:bg-gray-800/30 rounded-3xl p-12 border border-white/40 dark:border-gray-700/40 shadow-xl animate-fade-in">
+              <h1 className="text-4xl md:text-5xl font-poppins font-bold text-gray-800 dark:text-white mb-6">
                 Smart Female Entrepreneur
               </h1>
-              <h2 className="text-xl md:text-2xl font-poppins font-medium text-gray-700 mb-8">
+              <h2 className="text-xl md:text-2xl font-poppins font-medium text-gray-700 dark:text-gray-200 mb-8">
                 & Innovation Marketer
               </h2>
-              <p className="text-lg text-gray-600 mb-12 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-12 leading-relaxed">
                 Passionate about driving innovation through strategic marketing and entrepreneurial ventures
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -146,9 +150,9 @@ const Index = () => {
             </div>
 
             {/* Profile Photo Upload Area */}
-            <div className="backdrop-blur-glass bg-white/30 rounded-3xl p-8 border border-white/40 shadow-xl animate-fade-in">
+            <div className="backdrop-blur-glass bg-white/30 dark:bg-gray-800/30 rounded-3xl p-8 border border-white/40 dark:border-gray-700/40 shadow-xl animate-fade-in">
               <div className="text-center">
-                <h3 className="text-xl font-poppins font-semibold text-gray-800 mb-4">Profile Photo</h3>
+                <h3 className="text-xl font-poppins font-semibold text-gray-800 dark:text-white mb-4">Profile Photo</h3>
                 
                 {mascotImage ? (
                   <div className="relative group">
@@ -169,14 +173,14 @@ const Index = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className="border-2 border-dashed border-gray-300 rounded-2xl p-12 hover:border-lavender transition-colors duration-300">
+                  <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-2xl p-12 hover:border-lavender transition-colors duration-300">
                     <div className="flex flex-col items-center space-y-4">
                       <div className="w-20 h-20 bg-gradient-to-br from-lavender/20 to-teal/20 rounded-full flex items-center justify-center">
                         <Image className="w-10 h-10 text-lavender" />
                       </div>
                       <div>
-                        <h4 className="font-poppins font-medium text-gray-800 mb-2">Upload Your Profile Photo</h4>
-                        <p className="text-gray-600 text-sm mb-4">Add a professional profile photo to represent your brand</p>
+                        <h4 className="font-poppins font-medium text-gray-800 dark:text-white mb-2">Upload Your Profile Photo</h4>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">Add a professional profile photo to represent your brand</p>
                         <label htmlFor="mascot-upload" className="cursor-pointer">
                           <Button
                             asChild
@@ -201,7 +205,7 @@ const Index = () => {
                   </div>
                 )}
                 
-                <p className="text-xs text-gray-500 mt-4">
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-4">
                   Recommended: Square image, 400x400px or larger
                 </p>
               </div>
@@ -213,36 +217,36 @@ const Index = () => {
       {/* About Section */}
       <section id="about" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-poppins font-bold text-center text-gray-800 mb-16">About Me</h2>
+          <h2 className="text-4xl font-poppins font-bold text-center text-gray-800 dark:text-white mb-16">About Me</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="backdrop-blur-glass bg-white/30 border-white/40 p-8 animate-fade-in">
-              <h3 className="text-xl font-poppins font-semibold mb-6 text-gray-800">Personal Information</h3>
+            <Card className="backdrop-blur-glass bg-white/30 dark:bg-gray-800/30 border-white/40 dark:border-gray-700/40 p-8 animate-fade-in">
+              <h3 className="text-xl font-poppins font-semibold mb-6 text-gray-800 dark:text-white">Personal Information</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-lavender" />
-                  <span className="text-gray-700">ploypitcha.b@hotmail.com</span>
+                  <span className="text-gray-700 dark:text-gray-300">ploypitcha.b@hotmail.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-lavender" />
-                  <span className="text-gray-700">+66 9 2365 6564</span>
+                  <span className="text-gray-700 dark:text-gray-300">+66 9 2365 6564</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="h-5 w-5 text-lavender" />
-                  <span className="text-gray-700">423/49 The City Ekkamai-Ladprao, Bangkok</span>
+                  <span className="text-gray-700 dark:text-gray-300">423/49 The City Ekkamai-Ladprao, Bangkok</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Calendar className="h-5 w-5 text-lavender" />
-                  <span className="text-gray-700">29 June 1989</span>
+                  <span className="text-gray-700 dark:text-gray-300">29 June 1989</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <User className="h-5 w-5 text-lavender" />
-                  <span className="text-gray-700">Thai Nationality</span>
+                  <span className="text-gray-700 dark:text-gray-300">Thai Nationality</span>
                 </div>
               </div>
             </Card>
-            <Card className="backdrop-blur-glass bg-white/30 border-white/40 p-8 animate-fade-in">
-              <h3 className="text-xl font-poppins font-semibold mb-6 text-gray-800">Objective</h3>
-              <p className="text-gray-700 leading-relaxed">
+            <Card className="backdrop-blur-glass bg-white/30 dark:bg-gray-800/30 border-white/40 dark:border-gray-700/40 p-8 animate-fade-in">
+              <h3 className="text-xl font-poppins font-semibold mb-6 text-gray-800 dark:text-white">Objective</h3>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 To contribute my enthusiasm and skills in a challenging career environment, leveraging my expertise 
                 in innovation marketing, entrepreneurship, and strategic business development to drive meaningful 
                 growth and create lasting impact in the technology and business landscape.
@@ -255,20 +259,20 @@ const Index = () => {
       {/* Education Section */}
       <section id="education" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-poppins font-bold text-center text-gray-800 mb-16">Education</h2>
+          <h2 className="text-4xl font-poppins font-bold text-center text-gray-800 dark:text-white mb-16">Education</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="backdrop-blur-glass bg-white/30 border-white/40 p-8 animate-fade-in">
+            <Card className="backdrop-blur-glass bg-white/30 dark:bg-gray-800/30 border-white/40 dark:border-gray-700/40 p-8 animate-fade-in">
               <div className="text-center">
-                <h3 className="text-xl font-poppins font-semibold text-gray-800 mb-2">MBA</h3>
+                <h3 className="text-xl font-poppins font-semibold text-gray-800 dark:text-white mb-2">MBA</h3>
                 <p className="text-lavender font-medium mb-2">Assumption University</p>
-                <p className="text-gray-600">2012 – 2013</p>
+                <p className="text-gray-600 dark:text-gray-300">2012 – 2013</p>
               </div>
             </Card>
-            <Card className="backdrop-blur-glass bg-white/30 border-white/40 p-8 animate-fade-in">
+            <Card className="backdrop-blur-glass bg-white/30 dark:bg-gray-800/30 border-white/40 dark:border-gray-700/40 p-8 animate-fade-in">
               <div className="text-center">
-                <h3 className="text-xl font-poppins font-semibold text-gray-800 mb-2">BBA (Marketing, IMC)</h3>
+                <h3 className="text-xl font-poppins font-semibold text-gray-800 dark:text-white mb-2">BBA (Marketing, IMC)</h3>
                 <p className="text-lavender font-medium mb-2">Assumption University</p>
-                <p className="text-gray-600">2007 – 2011</p>
+                <p className="text-gray-600 dark:text-gray-300">2007 – 2011</p>
               </div>
             </Card>
           </div>
@@ -278,7 +282,7 @@ const Index = () => {
       {/* Certificates Section */}
       <section id="certificates" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-poppins font-bold text-center text-gray-800 mb-16">Certificates</h2>
+          <h2 className="text-4xl font-poppins font-bold text-center text-gray-800 dark:text-white mb-16">Certificates</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { title: "Critical Thinking Business", provider: "Chula MOOC", date: "Jan 2020" },
@@ -286,10 +290,10 @@ const Index = () => {
               { title: "Digital Skills: Digital Marketing", provider: "Accenture", date: "Oct 2018" },
               { title: "Digital Skills: Social Media", provider: "Accenture", date: "Oct 2018" }
             ].map((cert, index) => (
-              <Card key={index} className="backdrop-blur-glass bg-white/30 border-white/40 p-6 text-center animate-fade-in">
-                <h3 className="font-poppins font-semibold text-gray-800 mb-2">{cert.title}</h3>
+              <Card key={index} className="backdrop-blur-glass bg-white/30 dark:bg-gray-800/30 border-white/40 dark:border-gray-700/40 p-6 text-center animate-fade-in">
+                <h3 className="font-poppins font-semibold text-gray-800 dark:text-white mb-2">{cert.title}</h3>
                 <p className="text-lavender font-medium mb-2">{cert.provider}</p>
-                <p className="text-gray-600 text-sm">{cert.date}</p>
+                <p className="text-gray-600 text-sm mb-4">{cert.date}</p>
               </Card>
             ))}
           </div>
@@ -299,7 +303,7 @@ const Index = () => {
       {/* Experience Section */}
       <section id="experience" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-poppins font-bold text-center text-gray-800 mb-16">Professional Experience</h2>
+          <h2 className="text-4xl font-poppins font-bold text-center text-gray-800 dark:text-white mb-16">Professional Experience</h2>
           <div className="space-y-8">
             {[
               {
@@ -369,10 +373,10 @@ const Index = () => {
                 ]
               }
             ].map((job, index) => (
-              <Card key={index} className="backdrop-blur-glass bg-white/30 border-white/40 p-8 animate-fade-in">
+              <Card key={index} className="backdrop-blur-glass bg-white/30 dark:bg-gray-800/30 border-white/40 dark:border-gray-700/40 p-8 animate-fade-in">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                   <div>
-                    <h3 className="text-xl font-poppins font-semibold text-gray-800">{job.title}</h3>
+                    <h3 className="text-xl font-poppins font-semibold text-gray-800 dark:text-white">{job.title}</h3>
                     <p className="text-lavender font-medium">{job.company}</p>
                   </div>
                   <span className="text-gray-600 font-medium">{job.period}</span>
@@ -394,15 +398,15 @@ const Index = () => {
       {/* Awards Section */}
       <section id="awards" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-poppins font-bold text-center text-gray-800 mb-16">Awards & Hackathons</h2>
+          <h2 className="text-4xl font-poppins font-bold text-center text-gray-800 dark:text-white mb-16">Awards & Hackathons</h2>
           <div className="space-y-12">
             {Object.entries(awardsData)
               .sort(([yearA], [yearB]) => parseInt(yearB) - parseInt(yearA))
               .map(([year, awards]) => (
-                <Card key={year} className="backdrop-blur-glass bg-white/30 border-white/40 p-8 animate-fade-in">
+                <Card key={year} className="backdrop-blur-glass bg-white/30 dark:bg-gray-800/30 border-white/40 dark:border-gray-700/40 p-8 animate-fade-in">
                   <div className="flex items-center gap-3 mb-6">
                     <Trophy className="h-8 w-8 text-lavender" />
-                    <h3 className="text-3xl font-poppins font-bold text-gray-800">{year}</h3>
+                    <h3 className="text-3xl font-poppins font-bold text-gray-800 dark:text-white">{year}</h3>
                   </div>
                   <div className="space-y-3">
                     {awards.map((award, index) => (
@@ -421,8 +425,8 @@ const Index = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-poppins font-bold text-center text-gray-800 mb-16">Contact</h2>
-          <Card className="backdrop-blur-glass bg-white/30 border-white/40 p-8 animate-fade-in">
+          <h2 className="text-4xl font-poppins font-bold text-center text-gray-800 dark:text-white mb-16">Contact</h2>
+          <Card className="backdrop-blur-glass bg-white/30 dark:bg-gray-800/30 border-white/40 dark:border-gray-700/40 p-8 animate-fade-in">
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -464,9 +468,9 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-white/20">
+      <footer className="py-12 px-6 border-t border-white/20 dark:border-gray-700/20">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-gray-600">
+          <p className="text-gray-600 dark:text-gray-400">
             © 2024 Ploypitcha Boontavipitak. All rights reserved.
           </p>
           <div className="flex justify-center space-x-6 mt-4">
