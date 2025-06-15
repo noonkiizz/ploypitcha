@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Calendar, User, Download, ExternalLink, Trophy, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -138,7 +139,7 @@ const Index = () => {
             </div>
 
             {/* Profile Photo */}
-            <div className="backdrop-blur-glass bg-white/30 dark:bg-gray-800/30 rounded-3xl p-8 border border-white/40 dark:border-gray-700/40 shadow-xl animate-fade-in">
+            <div className="backdrop-blur-glass bg-white/30 dark:bg-gray-800/30 rounded-3xl p-12 border border-white/40 dark:border-gray-700/40 shadow-xl animate-fade-in">
               <div className="text-center">
                 <h3 className="text-xl font-poppins font-semibold text-gray-800 dark:text-white mb-6">Profile Photo</h3>
                 
