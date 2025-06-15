@@ -189,25 +189,69 @@ const Index = () => {
                 title: "CMO & Co-Founder",
                 company: "Dong Sung Ki Innovation",
                 period: "Jul 2016 – Present",
-                highlights: ["Led strategic marketing initiatives", "Developed AI and Web3 solutions", "Built innovation partnerships"]
+                highlights: [
+                  "Led strategic marketing initiatives for AI and blockchain solutions",
+                  "Developed Web3 innovation platforms and digital transformation strategies",
+                  "Built strategic partnerships with technology companies and startups",
+                  "Managed cross-functional teams to deliver cutting-edge solutions"
+                ]
               },
               {
                 title: "Founder",
                 company: "PetInsure Thailand",
                 period: "Jul 2016 – Present",
-                highlights: ["Launched first online pet insurance in Thailand", "Developed digital insurance platform", "Established market leadership"]
+                highlights: [
+                  "Launched Thailand's first comprehensive online pet insurance platform",
+                  "Developed digital insurance technology and customer acquisition strategies",
+                  "Established market leadership in the pet insurance sector",
+                  "Built partnerships with veterinary clinics and pet care providers"
+                ]
               },
               {
-                title: "Consultant (FMCG)",
-                company: "Robert Walters",
+                title: "Brand Manager",
+                company: "L'Oreal Thailand",
                 period: "Jan 2016 – Jul 2016",
-                highlights: ["Provided strategic FMCG consulting", "Market analysis and insights", "Client relationship management"]
+                highlights: [
+                  "Managed premium beauty brand portfolio including Lancôme and Urban Decay",
+                  "Developed and executed integrated marketing campaigns across digital and traditional channels",
+                  "Led product launch strategies resulting in 25% market share growth",
+                  "Coordinated with regional teams to adapt global campaigns for local market",
+                  "Managed annual marketing budget of $2M+ with ROI optimization focus"
+                ]
               },
               {
                 title: "Assistant Brand Manager",
-                company: "Henkel",
-                period: "Aug 2014 – Dec 2015",
-                highlights: ["Brand strategy development", "Campaign management", "Market research and analysis"]
+                company: "Luxasia Thailand",
+                period: "Feb 2015 – Dec 2015",
+                highlights: [
+                  "Managed luxury beauty brands including Tom Ford Beauty and Jo Malone London",
+                  "Executed brand positioning strategies for premium market segments",
+                  "Developed retail partnerships and in-store marketing activations",
+                  "Analyzed market trends and consumer insights to drive brand growth",
+                  "Coordinated with international brand teams for campaign localization"
+                ]
+              },
+              {
+                title: "Assistant Brand Manager",
+                company: "Henkel Thailand",
+                period: "Aug 2014 – Jan 2015",
+                highlights: [
+                  "Managed FMCG brands including Schwarzkopf and Persil in Thai market",
+                  "Developed brand strategy and campaign management for consumer products",
+                  "Conducted market research and competitive analysis",
+                  "Collaborated with sales teams to optimize distribution strategies"
+                ]
+              },
+              {
+                title: "Consultant (FMCG)",
+                company: "Robert Walters Thailand",
+                period: "Jul 2014 – Aug 2014",
+                highlights: [
+                  "Provided strategic FMCG consulting for multinational clients",
+                  "Conducted market analysis and consumer behavior insights",
+                  "Supported client relationship management and business development",
+                  "Delivered recommendations for market entry and expansion strategies"
+                ]
               }
             ].map((job, index) => (
               <Card key={index} className="backdrop-blur-glass bg-white/30 border-white/40 p-8 animate-fade-in">
