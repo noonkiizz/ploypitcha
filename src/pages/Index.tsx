@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, Calendar, User, Download, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Calendar, User, Download, ExternalLink, Trophy, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -31,6 +31,47 @@ const Index = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const awardsData = {
+    2024: [
+      "🎨 HACKCULTURE 2023: Illuminate Thai Fashion",
+      "📰 Digital Cultural Heritage Press Event, 20 Feb 2024",
+      "🥇 1st Place, NocNoc Hackathon 2024 (AI/Data AI Challenge)",
+      "🥇 1st Place, BITKUB BLOCKATHON 2024",
+      "🥈 2nd Prize, Viction Horizon Startup Hackathon (Ho Chi Minh)",
+      "🏆 Winner Prize, Health & Innovation Asia Hackathon 2024"
+    ],
+    2023: [
+      "🌱 HACK FOR GOOD: Well‑Being Creation (Chiang Mai)",
+      "🥇 Thailand Winner, HAPATHON 2023 (Web 3.0 Global Startup)",
+      "🚀 AXELA ONLINE HACKATHON 2023",
+      "🥈 2nd Runner‑Up, Bangkok Blockathon (SCB 10X)",
+      "🥇 1st Place, MAKATHON 2023",
+      "🌐 Thailand Rep., APEC App Challenge 2023 (Seattle)"
+    ],
+    2018: [
+      "🥇 Excellent SMEs Startup Awards 2018 (National)"
+    ],
+    2017: [
+      "🏆 Best Hacker & Team's Choice, Asia Open Data Hackathon",
+      "🏅 Innovative FinTech Award, FinTech Challenge",
+      "🚀 Accelerated by SCB Digital Ventures (PetInsure Thailand)",
+      "🏆 SAMART Innovative Award (Young Technopreneur)",
+      "🎤 Guest Speaker, Government‑Supported Startup & Hackathon Events",
+      "🥇 Standard SMEs Startup Awards (National)",
+      "🥇 1st Winner, Young Technopreneur 2017",
+      "🥈 SMEs Startup Awards 2017 (National)",
+      "🏆 Best Hackers, Intl. Data Economy Summit, Taipei"
+    ],
+    2016: [
+      "🏆 Winner, Thailand Grand Hackathon 2016 (Startup Thailand)",
+      "🥈 Runner‑Up, LAMBDA HACKATHON #1",
+      "🏆 Winner & Thailand Rep., AngelHack Bangkok 2016",
+      "🥈 Runner‑Up, SEA Makerthon 2016",
+      "🎖 Women Entrepreneur Thailand",
+      "🌍 OH! MY JEJU HACKATHON, Jeju, South Korea"
+    ]
   };
 
   return (
@@ -280,22 +321,25 @@ const Index = () => {
       <section id="awards" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-poppins font-bold text-center text-gray-800 mb-16">Awards & Hackathons</h2>
-          <div className="flex flex-wrap gap-4 justify-center">
-            {[
-              "2024: Health & Innovation Asia Hackathon Winner",
-              "2024: 1st Place, BITKUB BLOCKATHON",
-              "2023: Thailand Winner, HAPATHON (Web3)",
-              "2023: 2nd Runner-Up, Bangkok Blockathon",
-              "2023: Representative, APEC App Challenge (Seattle)",
-              "2017: Innovative FinTech Award (FinTech Challenge)"
-            ].map((award, index) => (
-              <span
-                key={index}
-                className="backdrop-blur-glass bg-gradient-to-r from-lavender/20 to-teal/20 border border-white/40 px-4 py-2 rounded-full text-gray-700 font-medium animate-fade-in"
-              >
-                {award}
-              </span>
-            ))}
+          <div className="space-y-12">
+            {Object.entries(awardsData)
+              .sort(([yearA], [yearB]) => parseInt(yearB) - parseInt(yearA))
+              .map(([year, awards]) => (
+                <Card key={year} className="backdrop-blur-glass bg-white/30 border-white/40 p-8 animate-fade-in">
+                  <div className="flex items-center gap-3 mb-6">
+                    <Trophy className="h-8 w-8 text-lavender" />
+                    <h3 className="text-3xl font-poppins font-bold text-gray-800">{year}</h3>
+                  </div>
+                  <div className="space-y-3">
+                    {awards.map((award, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <Award className="h-5 w-5 text-teal mt-1 flex-shrink-0" />
+                        <span className="text-gray-700 leading-relaxed">{award}</span>
+                      </div>
+                    ))}
+                  </div>
+                </Card>
+              ))}
           </div>
         </div>
       </section>
