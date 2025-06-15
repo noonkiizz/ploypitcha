@@ -1,5 +1,6 @@
+
 import { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, Calendar, User, Download, ExternalLink, Trophy, Award } from 'lucide-react';
+import { Mail, Phone, MapPin, Calendar, User, Download, ExternalLink, Trophy, Award, Upload, Image } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -7,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [mascotImage, setMascotImage] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +31,17 @@ const Index = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setMascotImage(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -101,33 +114,98 @@ const Index = () => {
 
       {/* Hero Section */}
       <section id="home" className="pt-32 pb-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="backdrop-blur-glass bg-white/30 rounded-3xl p-12 border border-white/40 shadow-xl animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-poppins font-bold text-gray-800 mb-6">
-              Smart Female Entrepreneur
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-poppins font-medium text-gray-700 mb-8">
-              & Innovation Marketer
-            </h2>
-            <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-              Passionate about driving innovation through strategic marketing and entrepreneurial ventures
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-lavender hover:bg-lavender/90 text-white font-medium px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:backdrop-brightness-125"
-              >
-                <Download className="mr-2 h-5 w-5" />
-                Download CV
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                onClick={() => scrollToSection('contact')}
-                className="border-teal text-teal hover:bg-teal hover:text-white font-medium px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105"
-              >
-                Contact Me
-              </Button>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Main Content */}
+            <div className="backdrop-blur-glass bg-white/30 rounded-3xl p-12 border border-white/40 shadow-xl animate-fade-in">
+              <h1 className="text-4xl md:text-5xl font-poppins font-bold text-gray-800 mb-6">
+                Smart Female Entrepreneur
+              </h1>
+              <h2 className="text-xl md:text-2xl font-poppins font-medium text-gray-700 mb-8">
+                & Innovation Marketer
+              </h2>
+              <p className="text-lg text-gray-600 mb-12 leading-relaxed">
+                Passionate about driving innovation through strategic marketing and entrepreneurial ventures
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  size="lg"
+                  className="bg-lavender hover:bg-lavender/90 text-white font-medium px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:backdrop-brightness-125"
+                >
+                  <Download className="mr-2 h-5 w-5" />
+                  Download CV
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => scrollToSection('contact')}
+                  className="border-teal text-teal hover:bg-teal hover:text-white font-medium px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105"
+                >
+                  Contact Me
+                </Button>
+              </div>
+            </div>
+
+            {/* Mascot Upload Area */}
+            <div className="backdrop-blur-glass bg-white/30 rounded-3xl p-8 border border-white/40 shadow-xl animate-fade-in">
+              <div className="text-center">
+                <h3 className="text-xl font-poppins font-semibold text-gray-800 mb-4">Professional Mascot</h3>
+                
+                {mascotImage ? (
+                  <div className="relative group">
+                    <img
+                      src={mascotImage}
+                      alt="Professional Mascot"
+                      className="w-full max-w-sm mx-auto rounded-2xl shadow-lg transition-all duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <Button
+                        onClick={() => setMascotImage(null)}
+                        variant="outline"
+                        size="sm"
+                        className="bg-white/90 text-gray-800 border-white/60 hover:bg-white"
+                      >
+                        Change Image
+                      </Button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="border-2 border-dashed border-gray-300 rounded-2xl p-12 hover:border-lavender transition-colors duration-300">
+                    <div className="flex flex-col items-center space-y-4">
+                      <div className="w-20 h-20 bg-gradient-to-br from-lavender/20 to-teal/20 rounded-full flex items-center justify-center">
+                        <Image className="w-10 h-10 text-lavender" />
+                      </div>
+                      <div>
+                        <h4 className="font-poppins font-medium text-gray-800 mb-2">Upload Your Mascot</h4>
+                        <p className="text-gray-600 text-sm mb-4">Add a professional mascot image to represent your brand</p>
+                        <label htmlFor="mascot-upload" className="cursor-pointer">
+                          <Button
+                            asChild
+                            size="sm"
+                            className="bg-gradient-to-r from-lavender to-teal hover:from-lavender/90 hover:to-teal/90 text-white transition-all duration-300 hover:scale-105"
+                          >
+                            <span>
+                              <Upload className="mr-2 h-4 w-4" />
+                              Choose Image
+                            </span>
+                          </Button>
+                        </label>
+                        <input
+                          id="mascot-upload"
+                          type="file"
+                          accept="image/*"
+                          onChange={handleImageUpload}
+                          className="hidden"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+                
+                <p className="text-xs text-gray-500 mt-4">
+                  Recommended: Square image, 400x400px or larger
+                </p>
+              </div>
             </div>
           </div>
         </div>
