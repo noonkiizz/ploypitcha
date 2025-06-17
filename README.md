@@ -1,24 +1,12 @@
-# Welcome to your Lovable project
+# Ploypitcha Portfolio Project
 
-## Project info
+## Project Info
 
-**URL**: https://lovable.dev/projects/1fe82d05-8cb5-41c3-bb44-03c37041ad5c
+A modern portfolio web app for Ploypitcha Boontavipitak, built with Vite, React, TypeScript, shadcn-ui, and Tailwind CSS.
 
 ## How can I edit this code?
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/1fe82d05-8cb5-41c3-bb44-03c37041ad5c) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+You can work locally using your own IDE. The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 Follow these steps:
 
@@ -52,22 +40,44 @@ npm run dev
 
 ## What technologies are used for this project?
 
-This project is built with:
-
 - Vite
 - TypeScript
 - React
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## How can I deploy this project to GitHub Pages?
 
-Simply open [Lovable](https://lovable.dev/projects/1fe82d05-8cb5-41c3-bb44-03c37041ad5c) and click on Share -> Publish.
+1. Add the following to your `vite.config.ts`:
+   ```js
+   import { defineConfig } from 'vite';
+   import react from '@vitejs/plugin-react-swc';
+   import path from 'path';
+   // ...existing code...
+   export default defineConfig({
+     // ...existing code...
+     base: '/<REPO_NAME>/', // Set to your repo name
+     // ...existing code...
+   });
+   ```
+2. Add a deploy script to your `package.json`:
+   ```json
+   "scripts": {
+     // ...existing code...
+     "predeploy": "npm run build",
+     "deploy": "gh-pages -d dist"
+   }
+   ```
+3. Install `gh-pages`:
+   ```sh
+   npm install --save-dev gh-pages
+   ```
+4. Push your code to GitHub, then run:
+   ```sh
+   npm run deploy
+   ```
+5. Set your repo's GitHub Pages source to `gh-pages` branch in repo settings.
 
-## Can I connect a custom domain to my Lovable project?
+## Custom Domain
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+You can set a custom domain in your repository's GitHub Pages settings.

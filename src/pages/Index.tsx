@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Calendar, User, Download, ExternalLink, Trophy, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -143,7 +142,7 @@ const Index = () => {
               <div className="text-center w-full">
                 <div className="relative group">
                   <img
-                    src="/lovable-uploads/79aa2cc7-a302-429b-9358-6f23d7c46b6c.png"
+                    src="/placeholder.svg"
                     alt="Ploypitcha Boontavipitak - Professional Profile Photo"
                     className="w-80 h-80 mx-auto rounded-2xl shadow-lg transition-all duration-300 group-hover:scale-105 object-cover object-top"
                   />
