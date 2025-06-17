@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/<REPO_NAME>/", // Set this to your repo name for GitHub Pages
+  base: "/ploypitcha/", // Set for GitHub Pages
   server: {
     host: "::",
     port: 8080,
